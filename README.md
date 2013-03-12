@@ -81,12 +81,12 @@ sys.stdout.write('done' + os.linesep)
 
 Normally, you'd expect to see the following output in the console:
 
-    Loading file...ERROR: I should throw an error, but I'm badly written!
+    Loading file...ERROR: I should raise an error, but I'm badly written!
     done
 
 With funnel, the output looks a bit nicer:
 
-    [stderr] ERROR: I should throw an error, but I'm badly written!
+    [stderr] ERROR: I should raise an error, but I'm badly written!
     [stdout] Loading file...done
 
 The "Loading file" line is appended to the output when the line is completed. If the line is never completed, it is written out when funnel is cleaned-up.
