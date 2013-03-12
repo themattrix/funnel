@@ -15,7 +15,7 @@ Take, for example, this ``demo_output.py`` script::
     import sys
 
     print("Hello!")
-    sys.stderr.write(os.linesep.join(('Multi-line', 'Error!')))
+    sys.stderr.write('Multi-line{0}Error!{0}'.format(os.linesep))
 
 It could have its output captured and validated like so::
 
@@ -66,7 +66,7 @@ Imagine, if you will, the following scenario::
     import sys
 
     def load_file():
-        sys.stderr.write("ERROR: I should throw an error, but I'm badly written!" + os.linesep)
+        sys.stderr.write("ERROR: I should raise an error, but I'm badly written!" + os.linesep)
 
     sys.stdout.write('Loading file...')
     load_file()
@@ -74,12 +74,12 @@ Imagine, if you will, the following scenario::
 
 Normally, you'd expect to see the following output in the console::
 
-    Loading file...ERROR: I should throw an error, but I'm badly written!
+    Loading file...ERROR: I should raise an error, but I'm badly written!
     done
 
 With funnel, the output looks a bit nicer::
 
-    [stderr] ERROR: I should throw an error, but I'm badly written!
+    [stderr] ERROR: I should raise an error, but I'm badly written!
     [stdout] Loading file...done
 
 The "Loading file" line is appended to the output when the line is completed. If the line is never completed, it is written out when funnel is cleaned-up.
