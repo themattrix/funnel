@@ -15,7 +15,7 @@ import os
 import sys
 
 print("Hello!")
-sys.stderr.write(os.linesep.join(('Multi-line', 'Error!')))
+sys.stderr.write('Multi-line{0}Error!{0}'.format(os.linesep))
 ```
 
 It could have its output captured and validated like so:
@@ -53,7 +53,7 @@ with funnel.redirect_output_to_file('demo_output.log'):
     execfile('demo_output.py')
 ```
 
-The above would result in the file `demo_output.log` containing the following lines::
+The above would result in the file `demo_output.log` containing the following lines:
 
     [stdout] Hello!
     [stderr] Multi-line
@@ -72,7 +72,7 @@ import os
 import sys
 
 def load_file():
-    sys.stderr.write("ERROR: I should throw an error, but I'm badly written!" + os.linesep)
+    sys.stderr.write("ERROR: I should raise an error, but I'm badly written!" + os.linesep)
 
 sys.stdout.write('Loading file...')
 load_file()
