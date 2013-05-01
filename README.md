@@ -14,8 +14,8 @@ Take, for example, this `demo_output.py` script:
 import os
 import sys
 
-print("Hello!")
-sys.stderr.write('Multi-line{0}Error!{0}'.format(os.linesep))
+print('Hello!')
+sys.stderr.write('Multi-line\nError!\n')
 ```
 
 It could have its output captured and validated like so:
@@ -72,11 +72,11 @@ import os
 import sys
 
 def load_file():
-    sys.stderr.write("ERROR: I should raise an error, but I'm badly written!" + os.linesep)
+    sys.stderr.write('ERROR: I should raise an error, but I'm badly written!\n')
 
 sys.stdout.write('Loading file...')
 load_file()
-sys.stdout.write('done' + os.linesep)
+sys.stdout.write('done\n')
 ```
 
 Normally, you'd expect to see the following output in the console:
