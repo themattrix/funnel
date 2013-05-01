@@ -72,7 +72,7 @@ import os
 import sys
 
 def load_file():
-    sys.stderr.write('ERROR: I should raise an error, but I'm badly written!\n')
+    sys.stderr.write("ERROR: I should raise an error, but I'm badly written!\n")
 
 sys.stdout.write('Loading file...')
 load_file()
